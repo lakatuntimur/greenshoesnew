@@ -1,0 +1,5 @@
+.env
+.data/
+*.tar.gz
+*.zip
+dist/

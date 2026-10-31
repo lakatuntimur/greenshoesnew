@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: greenshoes-shop
+    runtime: node
+    plan: starter
+    numInstances: 1
+    buildCommand: node --check server.mjs
+    startCommand: node server.mjs
+    healthCheckPath: /api/config
+    disk:
+      name: greenshoes-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: NODE_VERSION
+        value: "24.19.0"
+      - key: DATA_DIR
+        value: /var/data
+      - key: DEMO_CATALOG
+        value: "false"
+      - key: BOT_USERNAME
+        value: GreenShoes_Bot
+      - key: ADMIN_TELEGRAM_IDS
+        value: "1649889192"
+      - key: MANAGER_USERNAME
+        value: GreenBarigaManager
+      - key: BOT_TOKEN
+        sync: false
